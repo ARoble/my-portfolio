@@ -11,7 +11,6 @@ const router = express.Router();
 
 const checkUserLogin = function (req, res, next) {
   if (!req.session.username) {
-    console.log("your not logged in sorry");
     return res.render("login", { message: "Please Login First my brudda" });
   }
   next();
@@ -24,7 +23,7 @@ router.get("/blogs", async (req, res) => {
         $or: [
           // { blogTitle: { $regex: ".*" + req.query.search + ".*" } },
           { en: { title: req.query.search } },
-          { category: req.query.search },
+          { category: { $regex: ".*" + req.query.search + ".*" } },
         ],
       }).sort({ createDate: -1 });
 

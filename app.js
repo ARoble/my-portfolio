@@ -49,7 +49,6 @@ app.use(blogRouter);
 // };
 
 app.get("/", (req, res) => {
-  console.log(dateFormat(new Date(), "mmm d, yyyy"));
   res.render("index", {
     page: "home",
     date: dateFormat(new Date(), "mmm d, yyyy"),
@@ -109,7 +108,7 @@ app.post("/login", async (req, res) => {
     if (!user) {
       return res.render("login", { message: "Wrong Credientials" });
     }
-    console.log(user);
+
     req.session.loggedin = true;
     req.session.username = req.body.username;
     res.redirect("/");

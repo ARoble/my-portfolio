@@ -140,7 +140,8 @@
                 </div>
 
                 <div style="padding-bottom: 10%">
-                  <h3>Similar Posts 🙃🔝</h3>
+                  <h3>Similar Posts 🙃</h3>
+                  <%= similar.length %>
                   <br />
                   <% for(var i=0; i < similar.length; i++) { %>
                   <a
@@ -149,8 +150,8 @@
                   >
                     <%= similar[i].en.title %>
                   </a>
-                  <% if(similar.length === 0 ){ %> Sorry no similar blog posts
-                  😔 <% } %>
+                  <% if(similar.length >= 0 ){ %> Sorry no similar blog posts 😔
+                  <% }else{ %> yes <% } %>
                   <br />
                   <% } %>
                 </div>
