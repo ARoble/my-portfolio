@@ -15,7 +15,7 @@ send repsonses through an object to render on the site
 [] Error Handling 
 [x] Portfolio Section 
 [] Logo for my site
-[] Choose a Domain Name (robleyare?)
+[] Choose a Domain Name (robleyare? || labaroRoble)
 [] Search for blog
 [x] Categories on the side of a single blog post
 [x] Add two languages :( 
