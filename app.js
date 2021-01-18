@@ -4,9 +4,10 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const dateFormat = require("dateformat");
 
 const User = require("./src/models/user");
-const Blog = require("./src/models/blog");
+const Contact = require("./src/models/contact");
 require("./src/db/mongoose");
 
 const app = express();
@@ -39,16 +40,20 @@ const blogRouter = require("./src/routes/blog");
 
 app.use(blogRouter);
 
-const checkUserLogin = function (req, res, next) {
-  if (!req.session.username) {
-    console.log("your not logged in sorry");
-    return res.render("login", { message: "Please Login First my brudda" });
-  }
-  next();
-};
+// const checkUserLogin = function (req, res, next) {
+//   if (!req.session.username) {
+//     console.log("your not logged in sorry");
+//     return res.render("login", { message: "Please Login First my brudda" });
+//   }
+//   next();
+// };
 
-app.get("/", checkUserLogin, (req, res) => {
-  res.render("index", { page: "home" });
+app.get("/", (req, res) => {
+  console.log(dateFormat(new Date(), "mmm d, yyyy"));
+  res.render("index", {
+    page: "home",
+    date: dateFormat(new Date(), "mmm d, yyyy"),
+  });
 });
 
 app.get("/portfolio", (req, res) => {
@@ -71,8 +76,17 @@ app.get("/contact", (req, res) => {
   res.render("contact", { page: "contact" });
 });
 
-app.post("/contact", (req, res) => {
-  res.send("Submitted!!");
+app.post("/contact", async (req, res) => {
+  const contact = new Contact({
+    name: req.body.name,
+    email: req.body.email,
+    website: req.body.website,
+    message: req.body.message,
+  });
+
+  await contact.save({});
+
+  res.render("contact", { contactMessage: "Please Login First my brudda" });
 });
 
 app.get("/login", async (req, res) => {

@@ -68,7 +68,6 @@ router.get("/blog/:slug", async (req, res) => {
     const similar = await Blog.find({
       $and: [{ category: blog.category }, { _id: { $ne: blog.id } }],
     });
-    console.log(similar);
     res.render("blog", {
       blog,
       category,

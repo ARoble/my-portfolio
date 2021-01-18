@@ -55,7 +55,13 @@
             <div class="title">
               <h2>Contact Me</h2>
               <p class="des-text">Contact me im a friendly guy</p>
+              <% if(locals.contactMessage){ %>
+              <div class="alert alert-primary" role="alert">
+                <b>Thank you</b> for your message!
+              </div>
+              <% } %>
             </div>
+
             <div class="row">
               <div class="col-md-6 col-lg-4">
                 <div class="card">
