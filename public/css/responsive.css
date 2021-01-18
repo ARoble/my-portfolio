@@ -1,0 +1,289 @@
+@charset "utf-8";
+
+/*
+Theme Name: HTML5 Template
+Theme URI: 
+Desing by: 
+Developed by: Abdullah Al Numan 
+Author: Abdullah Al Numan
+Version: 1.2.1
+License: 
+Tags: 
+*/
+
+
+/*================================================
+[  Table of contents  ]
+================================================
+
+    1 Side Nav
+
+    2 Banner
+
+    3 Portfolio
+    
+    4 About
+
+    5 Resume
+
+    6 Services
+
+    7 Blog
+    
+    8 Contact
+
+======================================
+[ End table content ]
+======================================*/
+
+@media(max-width:992px) {
+    .nicescroll-rails {
+        width: 3px !important;
+    }
+    .nicescroll-rails .nicescroll-cursors {
+        border-radius: 30px !important;
+    }
+    .nicescroll-rails:hover {
+        width: 5px !important;
+    }
+    section {
+        padding: 100px 0px;
+    }
+    section .title h2 {
+        font-size: 30px;
+    }
+    /*=====================
+        1 Side Nav
+    =======================*/
+    header nav.side-nav {
+        width: 100%;
+        height: 50px;
+        background: #FFFFFF;
+    }
+    header nav.side-nav .container {
+        padding: 0px 15px;
+    }
+    header nav.side-nav .logo {
+        width: 50px;
+        height: 50px;
+        line-height: 45px;
+    }
+    header .side-nav .manu-btn {
+        display: block;
+    }
+    header .main-manu ul {
+        position: fixed;
+        width: 50%;
+        height: 100%;
+        left: -100%;
+        margin-top: 0;
+        background: #FFFFFF;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+    header .main-manu a.active,
+    header .main-manu a:hover {
+        background: #6CC254 !important;
+    }
+    header .main-manu i {
+        display: none;
+    }
+    header .main-manu span {
+        position: relative;
+        left: 0;
+        margin-left: 0;
+        clip-path: none;
+        padding: 0px;
+        color: #292929;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+    }
+    header .main-manu a.active span,
+    header .main-manu a:hover span {
+        color: #FFFFFF;
+    }
+    header .social-item {
+        display: none;
+    }
+    header .main-manu ul.active {
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    main {
+        margin-left: 0;
+    }
+    /*=====================
+        2 Banner
+    =======================*/
+    .banner {
+        text-align: center;
+        margin-top: 100px;
+    }
+    .banner .container>.row {
+        height: 100%;
+        padding: 0px;
+    }
+    .banner .banner-profile {
+        width: 200px;
+        height: 200px;
+        margin: 0px auto 30px auto;
+    }
+    .banner .banner-text h6 {
+        margin-bottom: 20px;
+    }
+    .banner .banner-text h2 {
+        font-size: 48px;
+        line-height: 70px;
+        margin-bottom: 20px;
+    }
+    .banner .banner-text p {
+        font-size: 15px;
+        line-height: 25px;
+    }
+    /*=====================
+        3 Portfolio
+    =======================*/
+    .portfolio-demo-btn button {
+        margin-right: 20px;
+    }
+    .portfolio .portfolio-demo>div:nth-last-child(3) {
+        margin-bottom: 30px;
+    }
+    /*=====================
+        4 About
+    =======================*/
+    .about .about-logo {
+        right: 4%;
+    }
+    .about .about-info span.bash {
+        display: none;
+    }
+    .about .about-social li a {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+        line-height: 35px;
+    }
+    .about .about-social li .venobox i {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    /*=====================
+        5 Resume
+    =======================*/
+    .resume .resume-tab ul {
+        margin-bottom: 0px;
+    }
+    .resume .resume-tab li a {
+        margin: 0px 15px 30px 0px;
+    }
+    .resume .row>div:nth-last-child(3) {
+        margin-bottom: 30px;
+    }
+    /*=====================
+        7 Blog
+    =======================*/
+    .blog .row>div:nth-last-child(2) .card {
+        margin-bottom: 30px;
+    }
+    /*=====================
+        8 Contact
+    =======================*/
+    .contact .contact-map iframe {
+        height: 320px;
+    }
+}
+
+@media(max-width:767px) {
+    /*=====================
+        2 Banner
+    =======================*/
+    .banner .banner-text h6 {
+        font-size: 16px;
+    }
+    .banner .banner-text h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .banner .banner-text p {
+        font-size: 14px;
+    }
+    /*=====================
+        3 Portfolio
+    =======================*/
+    .portfolio .portfolio-demo-btn {
+        padding-bottom: 0;
+    }
+    .portfolio-demo-btn button {
+        margin: 0px 10px 30px 0px;
+    }
+    /*=====================
+        5 Resume
+    =======================*/
+    .resume .resume-tab li a {
+        margin: 0px 15px 20px 0px;
+    }
+    .resume .row>div:nth-last-child(2) {
+        margin-bottom: 30px;
+    }
+    /*=====================
+        6 Services
+    =======================*/
+    .services .row>div:nth-last-child(2),
+    .services .row>div:nth-last-child(3) {
+        margin-bottom: 30px;
+    }
+    /*=====================
+        7 Blog
+    =======================*/
+    .blog .row>div:nth-last-child(3) .card {
+        margin-bottom: 30px;
+    }
+    /*=====================
+        8 Contact
+    =======================*/
+    .contact .contact-map iframe {
+        height: 100%;
+        margin-bottom: 20px;
+    }
+    .contact input:last-child {
+        margin-bottom: 20px;
+    }
+}
+
+@media(max-width:575px) {
+    /*=====================
+        3 Portfolio
+    =======================*/
+    .portfolio .portfolio-demo>div:nth-last-child(2) {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:479px) {
+    /*=====================
+        1 Side Nav
+    =======================*/
+    header .main-manu ul,
+    header .social-item ul {
+        width: 100%;
+    }
+    /*=====================
+        2 Banner
+    =======================*/
+    .banner .banner-profile {
+        width: 57%;
+        height: 57%;
+    }
+    /*=====================
+        3 Portfolio
+    =======================*/
+    .portfolio-demo-btn button {
+        display: block;
+        margin-right: 0px;
+    }
+}
