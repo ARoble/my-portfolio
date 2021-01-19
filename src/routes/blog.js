@@ -10,9 +10,9 @@ const Blog = require("../models/blog");
 const router = express.Router();
 
 const checkUserLogin = function (req, res, next) {
-  // if (!req.session.username) {
-  //   return res.render("login", { message: "Please Login First my brudda" });
-  // }
+  if (!req.session.username) {
+    return res.render("login", { message: "Please Login First my brudda" });
+  }
   next();
 };
 
