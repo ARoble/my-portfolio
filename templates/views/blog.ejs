@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>RobleCodes</title>
+    <title>RobleYare</title>
 
     <!-- Apple Favicon -->
     <link rel="apple-touch-icon" href="/img/logo/favicon.png" />
@@ -53,10 +53,18 @@
         <!-- Blog Start -->
         <section class="blog">
           <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="col-md-8">
                 <div class="title">
-                  <h2><%= blog.title %></h2>
+                  <h2><center><%= blog.title %></center></h2>
+                  <center>
+                    <a><%= blog.date %></a> |
+                    <a
+                      href="/blogs?search=<%= blog.category %>"
+                      style="color: green"
+                      ><%= blog.category %></a
+                    >
+                  </center>
 
                   <% if(lang === 'so') { %>
                   <a href="/blog/<%= blog.slug %>" style="color: green"
@@ -90,11 +98,42 @@
                 <div style="margin-top: 7%">
                   <p class="des-text"><%- blog.content %></p>
                 </div>
+
+                <div class="row" style="margin-top: 4%">
+                  <!-- This is the Similar post section if it does exsist-->
+                  <% if(similar.length > 0 ) { %>
+                  <div class="col-xs-12 col-sm-12"><b>Related Posts</b></div>
+                  <% for(var i=0; i < similar.length; i++) { %>
+                  <div class="col-xs-6 col-sm-3">
+                    <a href="/blog/<%= similar[i].slug %>" style="color: green">
+                      <%= similar[i].en.title %></a
+                    >
+                    <%= similar[i].createDate %> Category "<a
+                      href="/blogs?search=<%= similar[i].category %>"
+                      style="color: green"
+                      ><%= similar[i].category %></a
+                    >"
+                  </div>
+                  <% } }else{ %>
+                  <div class="col-xs-12 col-sm-12"><b>Latest Posts</b></div>
+                  <% for(var i=0; i < all.length; i++) { %>
+                  <div class="col-xs-6 col-sm-3">
+                    <a href="/blog/<%= all[i].slug %>" style="color: green">
+                      <%= all[i].en.title %></a
+                    >
+                    <%= all[i].createDate %> Category "<a
+                      href="/blogs?search=<%= all[i].category %>"
+                      style="color: green"
+                      ><%= all[i].category %></a
+                    >"
+                  </div>
+                  <% }} %>
+                </div>
                 <!-- add blog content here you kno-->
               </div>
               <!-- add whole next secions here-->
 
-              <div class="col-md-3">
+              <div class="col-md-3" id="right-side">
                 <!-- Add socials shit here -->
                 <div style="padding-bottom: 10%">
                   <h3>
@@ -141,7 +180,8 @@
 
                 <div style="padding-bottom: 10%">
                   <h3>Similar Posts 🙃</h3>
-                  <%= similar.length %>
+                  <% if(similar.length === 0 ) { %> Sorry no similar blog
+                  posts😔 <% } else { %>
                   <br />
                   <% for(var i=0; i < similar.length; i++) { %>
                   <a
@@ -150,10 +190,9 @@
                   >
                     <%= similar[i].en.title %>
                   </a>
-                  <% if(similar.length >= 0 ){ %> Sorry no similar blog posts 😔
-                  <% }else{ %> yes <% } %>
+
                   <br />
-                  <% } %>
+                  <% } %> <% } %>
                 </div>
               </div>
             </div>
@@ -167,7 +206,7 @@
         <!-- Blog End -->
       </main>
     </div>
-
+    <Style> #right-side{ display:none; } </Style>
     <!-- jQuery -->
     <script src="/js/vendor/jquery-3.5.1.min.js"></script>
 

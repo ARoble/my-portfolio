@@ -10,11 +10,11 @@ send repsonses through an object to render on the site
 [x] fix all the styling and all that
 [x] do all the routing
 [x] Sort out the Blog section (add,delete and update)
-[] Sessions and login 
-[] User permissions
+[x] Sessions and login 
+[x] User permissions
 [] Error Handling 
 [x] Portfolio Section 
-[] Logo for my site
+[x] Logo for my site
 [] Choose a Domain Name (robleyare? || labaroRoble)
 [] Search for blog
 [x] Categories on the side of a single blog post

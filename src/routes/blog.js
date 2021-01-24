@@ -21,11 +21,10 @@ router.get("/blogs", async (req, res) => {
     if (req.query.search) {
       const blog = await Blog.find({
         $or: [
-          // { blogTitle: { $regex: ".*" + req.query.search + ".*" } },
-          { en: { title: req.query.search } },
-          { category: { $regex: ".*" + req.query.search + ".*" } },
+          { "en.title": { $regex: new RegExp(req.query.search, "i") } },
+          { category: { $regex: new RegExp(req.query.search, "i") } },
         ],
-      }).sort({ createDate: -1 });
+      });
 
       res.status(200).render("blogs", {
         blog,
@@ -67,12 +66,33 @@ router.get("/blog/:slug", async (req, res) => {
     const similar = await Blog.find({
       $and: [{ category: blog.category }, { _id: { $ne: blog.id } }],
     });
+
+    const all = await Blog.find({
+      _id: { $ne: blog.id },
+    });
+    console.log(similar);
+    // const similar = await Blog.find(
+    //   {
+    //     $and: [{ category: blog.category }, { _id: { $ne: blog.id } }],
+    //   },
+    //   async (err, data) => {
+    //     if (data.length > 0) {
+    //       return data;
+    //     } else {
+    //       const all = await Blog.find({});
+    //       console.log(all);
+    //       return all;
+    //     }
+    //   }
+    // );
+    // console.log(similar);
     res.render("blog", {
       blog,
       category,
       session: req.session.username,
       lang: req.query.lang,
       similar,
+      all,
     });
   } catch (e) {
     console.log(e);
